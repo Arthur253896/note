@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct node {
 	int data;
@@ -53,6 +54,9 @@ void inorder(Node *node)
 		inorder(node->right);
 	}
 }
+void delete(int x){
+	
+}
 int main(int argc, char **argv)
 {
 	int a[10] = {7,4,5,6,1,8,9,32,43,12};
@@ -67,11 +71,11 @@ int main(int argc, char **argv)
 	for (i=0; i<len1; i++) {
 		create_tree(&tree1, a[i]);
 	}
-	int len2 = sizeof(a) / sizeof(int);
+	int len2 = sizeof(b) / sizeof(int);
 	for (i=0; i<len2; i++) {
 		create_tree(&tree2, b[i]);
 	}
-	int len3 = sizeof(a) / sizeof(int);
+	int len3 = sizeof(c) / sizeof(int);
 	for (i=0; i<len3; i++) {
 		create_tree(&tree3, c[i]);
 	}

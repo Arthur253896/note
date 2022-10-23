@@ -1,2 +1,0 @@
-
-    InOrder(tree2);
