@@ -34,3 +34,29 @@ $h_s\in${0,1}$^{1*K}$,$x^s\in${0,1}$1*N$,$A\in R^{N*K}$
 认知诊断更关注获取学习者的认知状态。为了评估学习者的认知状态，根据实验中学习者的认知状态预测学习者正确完成下一个练习的概率。从机器学习的角度设计知识溯源模型尽可能准确地预测学习者正确回答下一题的概率。它不太关心学习者的认知状态，只要尽可能准确地预测学习者正确回答下一个练习题的概率即可，而知识追踪更关心预测学习者获得下一个练习题的概率练习锻炼权利。
 
 现有的认知诊断模型很少充分利用习题与知识概念之间的隐含关系，对学习者的知识状态做出直观、可解释的诊断。因此，本研究提出了一种充分结合练习与知识概念之间显性和隐性关系的定量关系认知诊断模型
+
+
+## 认知诊断和知识追踪的异同
+认知诊断是新一代测量理论的代表，其目的是能够对学生个体围观知识层面进行评估分析，即得到学生在不同知识范围上的学习水平，最有代表的模型是（DINA,Q矩阵）该矩阵定义每一个练习题的知识范围, 由一组显示的知识/技能表示。
+图 2.4(a)展示了一个Q矩阵的样例, 其中可以看出练习题 2 考察了 “加法” 和 “乘法” 两个知识点。在实际应用中Q矩阵通常由教育学专家 (如教师) 进行标注。
+![](20230313110311.png)
+
+认知诊断是聚焦于学生目前对于某个知识点的掌握程度，主要讨论习题和知识之间的关系；
+知识追踪是聚焦与学生对下次答对这类题目概率，两者讨论重点不一样；
+之前的想法是用长短期记忆网络去预测学生下次答对这类题目的概率，这样重点就搞错了，而且已经有相关的论文（中文期刊）做出了研究DKT延申等；
+对于认知诊断通常是从知识点和习题难度两个维度预测，我觉着可以加一个时间维度，对于不同时间的学生增加一个（熟悉度的维度，从学习该知识点时间和答题信心程度来分析），结合记忆曲线的时间节点，给出一个熟悉度的分数，最后再综合出该学生目前的知识层面。
+
+矩阵分解（MF）旨在通过学习者在练习的另一部分中的表现来预测学习者在练习的一部分中的表现。知识追踪（Knowledge tracking，KT）是一项追踪学习者在过去各个阶段练习中表现的任务，以预测他们在未来练习活动中的表现。与 MF 不同，时间是 KT 中的一个重要因素。
+
+认知诊断和知识追踪的区别在于它们的侧重点。认知诊断更关注获取学习者的认知状态。为了评估学习者的认知状态，根据实验中学习者的认知状态预测学习者正确完成下一个练习的概率。从机器学习的角度设计知识溯源模型尽可能准确地预测学习者正确回答下一题的概率。它不太关心学习者的认知状态，只要尽可能准确地预测学习者正确回答下一个练习题的概率即可，而知识追踪更关心预测学习者获得下一个练习题的概率练习锻炼权利。
+
+此外，现有的认知诊断模型很少充分利用习题与知识概念之间的隐含关系，对学习者的知识状态做出直观、可解释的诊断。因此，本研究提出了一种充分结合练习与知识概念之间显性和隐性关系的定量关系认知诊断模型
+
+    Matrix factorization (MF) aims to predict learners’ performance in one part of the exercises by the learners’ performance in another part of the exercises. Knowledge tracking (KT) is a task for tracking learners’ performance on exercises in various stages in the past to predict their performance in future exercise activities. Unlike the MF, time is an important factor in KT.
+
+    The difference between cognitive diagnosis and knowledge tracing is their focus. Cognitive diagnosis is more concerned with obtaining the cognitive state of the learners. To evaluate the cognitive state of learners, the probability of learners getting the next exercise right was predicted based on the cognitive state of learners in the experiments. The knowledge tracing model was designed from the perspective of machine learning to predict the probability of learners’ correct answers to the next exercise question as accurately as possible. It is not very concerned about the cognitive state of learners as long as the probability of learners’ correct answers to the next exercise question was predicted as accurately as possible, whereas knowledge tracing is more concerned with predicting the probability that a learner will get the next practice exercise right.
+
+    In addition, existing cognitive diagnosis models rarely make full use of the implicit relationship between exercises and knowledge concepts to make intuitive and interpretable diagnoses of learners’ knowledge states. Therefore, this study proposes a quantitative relationship cognitive diagnosis model that fully combines the explicit and implicit relationships between exercises and knowledge concepts.
+
+## 如何实现
+长短期记忆网络，在某个不定的时间间隔t中输入同一个人的学习记录，对其加入变量诊断其知识结构，对于记忆曲线要是函数而不是固定值
