@@ -88,3 +88,8 @@ mainÊÇÕâÌõ¹æÔòµÄÄ¿±ê£¬main.o¡¢stack.oºÍmaze.oÊÇÕâÌõ¹æÔòµÄÌõ¼ş±êºÍÌõ¼şÖ®¼äµÄ¹ØÏµÊ
 
     clean:-rm main *.o
     .PHONY:clean
+
+# ½â¾öĞéÄâ»úÍøÂç²»¼ûµÄÔ­Òò
+
+    sudo nmcli network off
+    sudo nmcli network on

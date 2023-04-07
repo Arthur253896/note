@@ -58,5 +58,13 @@ $h_s\in${0,1}$^{1*K}$,$x^s\in${0,1}$1*N$,$A\in R^{N*K}$
 
     In addition, existing cognitive diagnosis models rarely make full use of the implicit relationship between exercises and knowledge concepts to make intuitive and interpretable diagnoses of learners’ knowledge states. Therefore, this study proposes a quantitative relationship cognitive diagnosis model that fully combines the explicit and implicit relationships between exercises and knowledge concepts.
 
+虽然NeuralCDM和基于神经网络的知识追踪模型都利用了神经网络来进行教育评估，但它们之间还是存在一些区别。
+
+NeuralCDM与传统的知识追踪方法最大的区别在于它不仅考虑学生的知识水平，还考虑了学生的认知能力。具体而言，NeuralCDM将学生的认知能力视为一种隐含因素，并使用神经网络来建立学生的认知诊断模型。这种模型可以对学生的认知能力进行建模和预测，并且可以在考虑学生认知能力的基础上更准确地估计学生的知识水平。
+
+相比之下，基于神经网络的知识追踪模型通常更侧重于对学生的知识掌握情况进行建模和预测。这些模型通常使用神经网络来表示学生的知识状态，以便更好地估计学生的知识水平，并根据学生的历史数据预测学生的未来表现。
+
+因此，NeuralCDM与基于神经网络的知识追踪模型之间的区别在于，NeuralCDM不仅考虑了学生的知识水平，还考虑了学生的认知能力，通过引入认知能力的概念，增强了模型的表达能力和泛化能力。
+
 ## 如何实现
 长短期记忆网络，在某个不定的时间间隔t中输入同一个人的学习记录，对其加入变量诊断其知识结构，对于记忆曲线要是函数而不是固定值
